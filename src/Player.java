@@ -10,6 +10,7 @@ public class Player {
 
     }
 
+    //Getters Setters
     public int getDmg() {
         return dmg;
     }
