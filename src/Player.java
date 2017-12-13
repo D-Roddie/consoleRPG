@@ -33,4 +33,6 @@ public class Player {
     public void decrementHealth(int decValue){
         health = health - decValue;
     }
+
+    public void heal(){health = maxHealth;}
 }

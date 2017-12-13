@@ -10,5 +10,14 @@ abstract public class Location {
     public String getActions(){
         return actions;
     }
-    public void doAction(String action, Player player){}
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void doAction(String action, Player player, Game game){}
 }
