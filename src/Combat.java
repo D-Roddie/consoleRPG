@@ -1,14 +1,31 @@
 public class Combat {
-    Player player;
-    NPC enemy;
+
+    private Player player;
+    private NPC enemy;
+
     public Combat(Player playerObj, NPC npc) {
         player = playerObj;
         enemy = npc;
     }
 
     public void takeTurn(){
-        System.out.println("They fight");
-        System.out.println(enemy.getHealth());
-        System.out.println(player.getHealth());
+        if (player.getSpd() >= enemy.getSpd()){
+            enemy.decrementHealth(player.getDmg());
+            if(enemy.isAlive()){
+                player.decrementHealth(enemy.getDmg());
+            }
+        }else{
+            player.decrementHealth(enemy.getDmg());
+            if(player.isAlive()){
+                enemy.decrementHealth(player.getDmg());
+            }
+        }
+
+    }
+
+    public boolean isCombatIsActive() {
+        if (player.isAlive() && enemy.isAlive()){
+            return true;
+        }else return false;
     }
 }

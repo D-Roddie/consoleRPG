@@ -18,11 +18,19 @@ public class Player {
         return maxHealth;
     }
 
-    public int getHealth() {
+    public int getHealth() { return health; }
 
-        return health;
-    }
     public int getSpd() {
         return spd;
+    }
+
+    public boolean isAlive(){
+        if(health > 0){
+            return true;
+        }else return false;
+    }
+
+    public void decrementHealth(int decValue){
+        health = health - decValue;
     }
 }
