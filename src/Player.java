@@ -2,11 +2,11 @@ public class Player {
 
     private int health, maxHealth, dmg, spd;
 
-    public Player() {
-        maxHealth = 100;
+    public Player(int startHealth,int startDmg, int startSpd) {
+        maxHealth = startHealth;
         health = maxHealth;
-        dmg = 25;
-        spd = 5;
+        dmg = startDmg;
+        spd = startSpd;
 
     }
 

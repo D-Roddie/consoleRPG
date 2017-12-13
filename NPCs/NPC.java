@@ -1,4 +1,5 @@
-public class NPC {
+// to be inherited by NPC subclasses
+abstract public class NPC {
 
     private int health, maxHealth, dmg, spd;
     private String dialog;
