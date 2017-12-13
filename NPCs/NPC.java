@@ -2,9 +2,10 @@
 abstract public class NPC {
 
     private int health, maxHealth, dmg, spd;
-    private String dialog;
+    private String dialog, name;
 
-    public NPC(int startHealth,int startDmg, int startSpd, String startDialog) {
+    public NPC(String name, int startHealth,int startDmg, int startSpd, String startDialog) {
+        this.name = name;
         maxHealth = startHealth;
         health = maxHealth;
         dmg = startDmg;
@@ -33,6 +34,8 @@ abstract public class NPC {
     public String getDialog() {
         return dialog;
     }
+
+    public String getName() { return name; }
 
     public boolean isAlive(){
         if(health > 0){

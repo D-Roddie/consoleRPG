@@ -6,6 +6,10 @@ public class Combat {
     public Combat(Player playerObj, NPC npc) {
         player = playerObj;
         enemy = npc;
+        System.out.println("Player encountered a " + enemy.getName());
+        do{
+            takeTurn();
+        }while (isCombatIsActive());
     }
 
     public void takeTurn(){
