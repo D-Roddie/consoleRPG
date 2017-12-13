@@ -9,24 +9,24 @@ public class DarkForrest extends Location{
         super("Dark Forrest", "in the dark forrest", "1. Go back to the tavern\n2. Search for the lost treasure");
     }
     public void doAction(String input, Player player, Game game){
-        if (input.equals("1")){
-            game.setLocation(new Tavern());
-        }
-        else if(input.equals("2")){
-            System.out.println("*Rolls dice");
-            n = rand.nextInt(5);
 
-            if (n == 0){
-                System.out.println("Found the secret treasure!");
-                pickTreasure();
-                game.setHasWon();
-
-            }else{
-                System.out.println("Found nothing, player was attacked by a forrest troll");
-                Troll troll = new Troll();
-                Combat fight = new Combat(player, troll);
+        switch (input) {
+            case "1":
+                game.setLocation(new Tavern());
+                break;
+            case "2":
+                System.out.println("*Rolls dice");
+                n = rand.nextInt(5);
+                if (n == 0){
+                    System.out.println("Found the secret treasure!");
+                    pickTreasure();
+                    game.setHasWon();
+                }else{
+                    System.out.println("Found nothing, player was attacked by a forrest troll");
+                    Troll troll = new Troll();
+                    Combat fight = new Combat(player, troll);
             }
-
+            break;
         }
     }
     private void pickTreasure(){
@@ -50,6 +50,5 @@ public class DarkForrest extends Location{
             default:
                 System.out.println("It's an Error!");
         }
-
     }
 }

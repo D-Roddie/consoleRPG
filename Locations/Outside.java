@@ -3,13 +3,13 @@ public class Outside extends Location{
         super("Outside", "outside of the tavern", "1 Enter the tavern\n2 Enter the dark forrest");
     }
     public void doAction(String input, Player player, Game game){
-        if (input.equals("1")){
-            game.setLocation(new Tavern());
-
-        }
-        else if(input.equals("2")){
-            game.setLocation(new DarkForrest());
-
+        switch(input){
+            case "1":
+                game.setLocation(new Tavern());
+                break;
+            case "2":
+                game.setLocation(new DarkForrest());
+                break;
         }
     }
 }
