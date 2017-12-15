@@ -1,6 +1,15 @@
 public class consoleRPG {
-    public Game game;
+
     public static void main(String[] args){
-        Game game = new Game();
+
+        Game model = new Game();
+        GameView view = new GameView();
+
+        GameController controller = new GameController(model, view);
+
+        do{
+            controller.takeGameTurn();
+
+        }while(controller.gameIsActive());
     }
 }

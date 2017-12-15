@@ -7,33 +7,28 @@ public class Game {
     private Player player = new Player(40, 25, 10);
     private Location location = new Tavern();
     private boolean hasWon = false;
+    private String gameDialog;
 
-    String input;
-
-    Scanner sc = new Scanner(System.in);
-
-    //Game Loop
-    public Game(){
-        do{
-            System.out.println("\nThe player finds himself " + location.getDescription() + ". What will he do now?");
-            if(player.getHealth() > 10){
-                System.out.println("Player health "+ player.getHealth());
-            }else{System.out.println("Player health " + player.getHealth() + "(you should go get more beer)");}
-
-            System.out.println(location.getActions());
-
-            //takes player input and performs action
-            input = sc.nextLine();
-            System.out.println("_____________________");
-            location.doAction(input, player, this);
-
-        }while(player.isAlive() && !hasWon);
-
+    public void takeTurn(String input){
+        location.doAction(input, player, this);
     }
 
+    public void appendToDialog(String string){
+        gameDialog = gameDialog.concat("\n" + string);
+    }
+
+    public String getGameDialog() {
+        return gameDialog;
+    }
+    public void resetGameDialog(){
+        gameDialog = "";
+    }
+    public String getGameOptions(){
+        return "--------\n" + location.getDescription() + "\nWhat are the player going to do?\n" + location.getActions();
+    }
 
     //Setters Getters
-    public boolean hasWon(){ return hasWon; }
+    public boolean isActive(){ return !hasWon; }
 
     public void setLocation(Location location){ this.location = location; }
 

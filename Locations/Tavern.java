@@ -6,7 +6,8 @@ public class Tavern extends Location{
 
         switch(input){
             case "1":
-                drinkBeer(player);
+                game.appendToDialog("*FeelsGoodMan*\nFull health restored");
+                player.heal();
                 break;
             case "2":
                 Drunk drunk = new Drunk();
@@ -16,9 +17,5 @@ public class Tavern extends Location{
                 game.setLocation(new Outside());
                 break;
         }
-    }
-    public void drinkBeer(Player player){
-        System.out.println("*Drinks beer*\n*FeelsGoodMan.jpg*\nMax health restored");
-        player.heal();
     }
 }

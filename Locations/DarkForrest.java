@@ -15,40 +15,40 @@ public class DarkForrest extends Location{
                 game.setLocation(new Tavern());
                 break;
             case "2":
-                System.out.println("*Rolls dice");
+                game.appendToDialog("*Rolls dice");
                 n = rand.nextInt(5);
                 if (n == 0){
-                    System.out.println("Found the secret treasure!");
-                    pickTreasure();
+                    game.appendToDialog("Found the secret treasure!");
+                    pickTreasure(game);
                     game.setHasWon();
                 }else{
-                    System.out.println("Found nothing, player was attacked by a forrest troll");
+                    game.appendToDialog("Found nothing, player was attacked by a forrest troll");
                     Troll troll = new Troll();
                     Combat fight = new Combat(player, troll);
             }
             break;
         }
     }
-    private void pickTreasure(){
+    private void pickTreasure(Game game){
         n = rand.nextInt(5);
         switch (n){
             case 0:
-                System.out.println("It's a magic sword!");
+                game.appendToDialog("It's a magic sword!");
                 break;
             case 1:
-                System.out.println("It's a used sock, just what you needed!");
+                game.appendToDialog("It's a used sock, just what you needed!");
                 break;
             case 2:
-                System.out.println("It's a slightly used walking stick, how nice!");
+                game.appendToDialog("It's a slightly used walking stick, how nice!");
                 break;
             case 3:
-                System.out.println("It's a brand new Honda!");
+                game.appendToDialog("It's a brand new Honda!");
                 break;
             case 4:
-                System.out.println("It's a ERROR 404 Treasure not found");
+                game.appendToDialog("It's a ERROR 404 Treasure not found");
                 break;
             default:
-                System.out.println("It's an Error!");
+                game.appendToDialog("It's an Error!");
         }
     }
 }
