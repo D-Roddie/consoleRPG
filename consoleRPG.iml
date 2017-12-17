@@ -7,10 +7,14 @@
       <sourceFolder url="file://$MODULE_DIR$/NPCs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/Locations" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Items" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Items/Weapons" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Items/Armor" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library" scope="TEST">
+    <orderEntry type="module-library" exported="" scope="TEST">
       <library name="JUnit5">
         <CLASSES>
           <root url="jar://$APPLICATION_HOME_DIR$/plugins/junit/lib/junit-jupiter-api-5.0.0.jar!/" />

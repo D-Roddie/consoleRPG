@@ -20,11 +20,15 @@ public class Game {
     public String getGameDialog() {
         return gameDialog;
     }
+
     public void resetGameDialog(){
         gameDialog = "";
     }
+
     public String getGameOptions(){
-        return "--------\n" + location.getDescription() + "\nWhat are the player going to do?\n" + location.getActions();
+        return "--------\n" + location.getDescription() +
+                "\nWhat are the player going to do?\n" +
+                location.getActions();
     }
 
     //Setters Getters
