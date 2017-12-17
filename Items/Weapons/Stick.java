@@ -1,5 +1,5 @@
 public class Stick extends Weapon{
-    public Stick(String name, String description, int dmg) {
+    public Stick() {
         super("Stick", "it's very pointy and most dangerous", 2);
     }
 }

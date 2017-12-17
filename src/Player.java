@@ -1,12 +1,19 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Player {
 
     private int health, maxHealth, dmg, spd;
+    List<Item> inventory = new ArrayList<Item>();
 
-    public Player(int startHealth,int startDmg, int startSpd) {
+    public Player(int startHealth,int startDmg, int startSpd, Weapon weapon, Armor armor) {
         maxHealth = startHealth;
         health = maxHealth;
         dmg = startDmg;
         spd = startSpd;
+
+        inventory.add(weapon);
+        inventory.add(armor);
 
     }
 
