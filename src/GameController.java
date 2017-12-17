@@ -11,12 +11,14 @@ public class GameController {
     public void takeGameTurn(){
         //Clears the Dialog string
         model.resetGameDialog();
-        //fetches the players current options
+
+        //fetches the players current options and prints them
         view.printGameDialog(model.getGameOptions());
 
         //performs action and prints the result
         model.takeTurn(view.getUserInput());
         view.printGameDialog(model.getGameDialog());
+
 
     }
 

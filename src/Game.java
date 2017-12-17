@@ -27,7 +27,9 @@ public class Game {
     }
 
     public String getGameOptions(){
-        return "--------\n" + location.getDescription() +
+        return "--------\nPlayer Health: " +
+                player.getHealth() + "\n" +
+                location.getDescription() +
                 "\nWhat are the player going to do?\n" +
                 location.getActions();
     }
