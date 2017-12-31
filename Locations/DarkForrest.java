@@ -8,7 +8,7 @@ public class DarkForrest extends Location{
     public DarkForrest(){
         super("Dark Forrest", "in the dark forrest", "1. Go back to the tavern\n2. Search for the lost treasure");
     }
-    public void doAction(String input, Player player, Game game){
+    public void doAction(String input, Player player, GameModel game){
 
         switch (input) {
             case "1":
@@ -24,12 +24,12 @@ public class DarkForrest extends Location{
                 }else{
                     game.appendToDialog("Found nothing, player was attacked by a forrest troll");
                     Troll troll = new Troll();
-                    Combat fight = new Combat(player, troll);
+                    Combat fight = new Combat(player, troll, game);
             }
             break;
         }
     }
-    private void pickTreasure(Game game){
+    private void pickTreasure(GameModel game){
         n = rand.nextInt(5);
         switch (n){
             case 0:

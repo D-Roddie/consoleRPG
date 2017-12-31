@@ -3,45 +3,45 @@ public class Combat {
     private Player player;
     private NPC enemy;
 
-    public Combat(Player playerObj, NPC npc) {
+    public Combat(Player playerObj, NPC npc, GameModel game) {
         player = playerObj;
         enemy = npc;
-        System.out.println("Player encountered a " + enemy.getName());
-        System.out.println(enemy.getName() + " says " + enemy.getDialog());
+        game.appendToDialog("Player encountered a " + enemy.getName()
+        + "\n" + enemy.getName() + " says " + enemy.getDialog() + "\n");
         do{
-            takeTurn();
-        }while (isCombatIsActive());
+            takeTurn(game);
+        }while (isCombatIsActive(game));
     }
 
-    public void takeTurn(){
+    public void takeTurn(GameModel game){
 
         //runs if player is faster or equal
         if (player.getSpd() >= enemy.getSpd()){
-            System.out.println("The player strikes first at " + enemy.getName());
+            game.appendToDialog("The player strikes first at " + enemy.getName() + "\n");
             enemy.decrementHealth(player.getDmg());
             if(enemy.isAlive()){
-                System.out.println(enemy.getName() + " strikes back!");
+                game.appendToDialog(enemy.getName() + " strikes back!\n");
                 player.decrementHealth(enemy.getDmg());
             }
         }else{
-            System.out.println(enemy.getName() + " strikes first at the player!");
+            game.appendToDialog(enemy.getName() + " strikes first at the player!\n");
             player.decrementHealth(enemy.getDmg());
             if(player.isAlive()){
-                System.out.println("The player strikes back at " + enemy.getName());
+                game.appendToDialog("The player strikes back at " + enemy.getName() + "\n");
                 enemy.decrementHealth(player.getDmg());
             }
         }
 
     }
 
-    public boolean isCombatIsActive() {
+    public boolean isCombatIsActive(GameModel game) {
         if (player.isAlive() && enemy.isAlive()){
             return true;
         }else if(!player.isAlive()){
-            System.out.println("Player was defeated by " + enemy.getName());
+            game.appendToDialog("Player was defeated by " + enemy.getName() + "\n");
             return false;
         }else if(!enemy.isAlive()){
-            System.out.println(enemy.getName() + " was defeated!");
+            game.appendToDialog(enemy.getName() + " was defeated! \n");
             return false;
         }else return false;
     }

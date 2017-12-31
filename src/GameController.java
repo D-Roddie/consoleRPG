@@ -1,32 +1,34 @@
+import javax.swing.text.View;
+
 public class GameController {
 
-    private Game model;
+    private GameModel model;
     private GameView view;
+    private ViewActionListener listener;
 
-    public GameController(Game model, GameView view){
+    public GameController(GameModel model, GameView view){
         this.model = model;
         this.view = view;
+        this.listener = view.listener;
+        listener.controller = this;
+
+        updateView();
     }
 
-    public void takeGameTurn(){
-        //Clears the Dialog string
-        model.resetGameDialog();
+    public void takeGameTurn(String input){
 
-        //fetches the players current options and prints them
-        view.printGameDialog(model.getGameOptions());
-
-        //performs action and prints the result
-        model.takeTurn(view.getUserInput());
-        view.printGameDialog(model.getGameDialog());
-
+        model.setDialog("");
+        model.takeTurn(input);
+        view.printGameDialog(model.getDialog() + model.getGameOptions());
 
     }
 
     public void updateView(){
-        view.printGameDialog(model.getGameDialog());
+        view.printGameDialog(model.getDialog() + model.getGameOptions());
+        model.setDialog("");
     }
 
     public boolean gameIsActive(){
-        return model.isActive();
+        return model.getGameIsActive();
     }
 }

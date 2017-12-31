@@ -19,5 +19,5 @@ abstract public class Location {
         return description;
     }
 
-    public void doAction(String action, Player player, Game game){}
+    public void doAction(String action, Player player, GameModel game){}
 }

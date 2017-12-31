@@ -1,14 +1,19 @@
 import java.util.Scanner;
 
-
+/**
 public class Game {
 
     //Initializes the game
     private Player player = new Player(40, 25, 10,
             new Stick(), new WoolHat());
+
     private Location location = new Tavern();
     private boolean hasWon = false;
     private String gameDialog;
+
+    public Game(){
+        resetGameDialog();
+    }
 
     public void takeTurn(String input){
         location.doAction(input, player, this);
@@ -34,10 +39,10 @@ public class Game {
                 location.getActions();
     }
 
-    //Setters Getters
     public boolean isActive(){ return !hasWon; }
 
     public void setLocation(Location location){ this.location = location; }
 
     public void setHasWon(){ hasWon = true; }
 }
+*/
