@@ -3,9 +3,10 @@ public class Combat {
     private Player player;
     private NPC enemy;
 
-    public Combat(Player playerObj, NPC npc, GameModel game) {
-        player = playerObj;
-        enemy = npc;
+    public Combat(Player player, NPC enemy, GameModel game) {
+        this.player = player;
+        this.enemy = enemy;
+
         game.appendToDialog("Player encountered a " + enemy.getName()
         + "\n" + enemy.getName() + " says " + enemy.getDialog() + "\n");
         do{
@@ -40,9 +41,9 @@ public class Combat {
         }else if(!player.isAlive()){
             game.appendToDialog("Player was defeated by " + enemy.getName() + "\n");
             return false;
-        }else if(!enemy.isAlive()){
+        }else{
             game.appendToDialog(enemy.getName() + " was defeated! \n");
             return false;
-        }else return false;
+        }
     }
 }

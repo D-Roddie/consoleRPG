@@ -1,16 +1,18 @@
 import javax.swing.*;
-import javax.swing.text.View;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.EventListener;
 
 public class ViewActionListener implements ActionListener{
 
-    GameController controller;
-    JTextField input;
+    private GameController controller;
+    private JTextField input;
 
     public ViewActionListener(JTextField input){
         this.input = input;
+    }
+
+    public void setController(GameController controller) {
+        this.controller = controller;
     }
 
     @Override

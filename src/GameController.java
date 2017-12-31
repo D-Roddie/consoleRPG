@@ -1,5 +1,3 @@
-import javax.swing.text.View;
-
 public class GameController {
 
     private GameModel model;
@@ -10,17 +8,18 @@ public class GameController {
         this.model = model;
         this.view = view;
         this.listener = view.listener;
-        listener.controller = this;
+        listener.setController(this);
 
         updateView();
     }
 
     public void takeGameTurn(String input){
 
-        model.setDialog("");
-        model.takeTurn(input);
-        view.printGameDialog(model.getDialog() + model.getGameOptions());
-
+        if(model.getGameIsActive()){
+            model.setDialog("");
+            model.takeTurn(input);
+            view.printGameDialog(model.getDialog() + model.getGameOptions());
+        }
     }
 
     public void updateView(){

@@ -23,7 +23,11 @@ public class GameModel {
     }
 
     public boolean getGameIsActive(){
-        return true;
+        if(!hasWon && player.isAlive()){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     public void setLocation(Location location){
@@ -38,10 +42,9 @@ public class GameModel {
     }
 
     public void appendToDialog(String dialog){
-        this.dialog = this.dialog.concat(dialog);
+        this.dialog = this.dialog.concat(dialog + "\n");
     }
     public void setDialog(String input){
         this.dialog = input;
     }
-
 }
