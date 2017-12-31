@@ -1,6 +1,7 @@
 public class Tavern extends Location{
     public Tavern(){
-        super("Tavern", "in a tavern", "1 Have a beer\n2 Brawl with other drunks\n3 Go outside");
+        super("Tavern", "The player finds himself in a tavern",
+                "1 Have a beer\n2 Brawl with other drunks\n3 Go outside");
     }
     public void doAction(String input, Player player, GameModel game){
 

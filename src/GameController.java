@@ -18,7 +18,7 @@ public class GameController {
         if(model.getGameIsActive()){
             model.setDialog("");
             model.takeTurn(input);
-            view.printGameDialog(model.getDialog() + model.getGameOptions());
+            updateView();
         }
     }
 
